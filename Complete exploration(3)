@@ -1,0 +1,30 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// yello + 2, + 2 -> width, height
+// brown + yello = 12 -> 4*3, 3*4 
+// but width > height -> 4*3
+vector<int> solution(int brown, int yellow) {
+    vector<int> answer;
+    
+    int total_count = brown + yellow;
+    // brown >=8 -> height >= 3
+    // i = height
+    for (int i=3; ;i++){
+      if((total_count%i) == 0){
+        int width = total_count / i;
+            
+        //yellow + 2 = width
+        //yellow + 2 = height
+        if((width - 2) * (i - 2) == yellow){
+          answer.push_back(width);
+          answer.push_back(i);
+          break;
+        }
+      }
+    }
+    
+    return answer;
+}
