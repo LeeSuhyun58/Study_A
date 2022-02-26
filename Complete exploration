@@ -49,6 +49,6 @@ vector<int> solution(vector<int> answers) {
         if(max_score == count[i])
             answer.push_back(i+1);
     }
-    
+  
     return answer;
 }
