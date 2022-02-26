@@ -1,3 +1,29 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+//1 -> 1 2 3 4 5 
+//2 -> 21 23 24 25 (22x)
+//3 -> 33 11 22 44 55 
+int student1[5] = {1,2,3,4,5};
+int student2[8] = {2,1,2,3,2,4,2,5};
+int student3[10] = {3,3,1,1,2,2,4,4,5,5};
+
+//answers array 
+vector<int> solution(vector<int> answers) {
+    vector<int> answer; //return
+    int count[3] = {0, 0, 0}; //score
+    int max_score = 0;
+    
+    for(int i = 0; i< answers.size(); i++){
+        if (answers[i] == student1[i%5]) {
+            count[0] += 1;
+        }
+        if (answers[i] == student2[i%8]){
+            count[1] += 1;
+        }
+        if (answers[i] == student3[i%10]){
             count[2] += 1;
         }
     }
